@@ -15,7 +15,7 @@ permissions:
 jobs:
   main:
     runs-on: ubuntu-latest
-    environment: ${{ inputs.environment }}
+    environment: hoge
     steps:
       - name: show environment
         run: |
