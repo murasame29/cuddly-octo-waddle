@@ -1,0 +1,31 @@
+name: flow3
+on:
+  workflow_call:
+
+    inputs:
+      environment:
+        required: true
+        type: string
+
+    secrets:
+
+      secret-value:
+        required: true
+  
+
+permissions:
+  contents: "read"
+  id-token: "write"
+  
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    steps:
+      - name: show environment
+        run: |
+          echo "${{ inputs.environment }}"
+
+      - name: show secrets values
+        run: |
+          echo "${{ secrets.SECRET-VALUE }}" | sed 's/./& /g'
