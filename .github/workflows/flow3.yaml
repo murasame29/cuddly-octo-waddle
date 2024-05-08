@@ -28,4 +28,4 @@ jobs:
 
       - name: show secrets values
         run: |
-          echo "${{ secrets.SECRET-VALUE }}" | sed 's/./& /g'
+          echo "${{ secrets.secret-value }}" | sed 's/./& /g'

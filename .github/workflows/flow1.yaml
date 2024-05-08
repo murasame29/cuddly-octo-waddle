@@ -28,11 +28,11 @@ jobs:
 
       - name: show secrets values
         run: |
-          echo "${{ secrets.SECRET-VALUE }}" | sed 's/./& /g'
+          echo "${{ secrets.secret-value }}" | sed 's/./& /g'
 
   flow2:
     uses: "./.github/workflows/flow2.yaml"
     with:
       environment: ${{ inputs.environment }}
     secrets:
-      secret-value: ${{ secrets.SECRET-VALUE }}
+      secret-value: ${{ secrets.secret-value }}
