@@ -2,12 +2,6 @@ name: main workflow
 
 on:
   workflow_dispatch:
-    inputs:
-      environment:
-        type: environment
-        description: environment to deploy to
-        required: true
-
 permissions:
   contents: "read"
   id-token: "write"
@@ -17,9 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: hoge
     steps:
-      - name: show environment
-        run: |
-          echo "${{ inputs.environment }}"
 
       - name: show secrets values
         run: |
@@ -28,7 +19,7 @@ jobs:
   flow1:
     uses: "./.github/workflows/flow1.yaml"
     with:
-      environment: ${{ inputs.environment }}
+      environment: "hoge"
     secrets:
       secret-value: ${{ secrets.SECRET_VALUE }}
       
